@@ -105,9 +105,6 @@
   .feature h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; letter-spacing: -.01em; }
   .feature p { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
-  .toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 20px); opacity: 0; background: var(--text); color: var(--bg); font-size: 14px; padding: 12px 18px; border-radius: 12px; transition: all .25s ease; z-index: 10; pointer-events: none; }
-  .toast.show { opacity: 1; transform: translate(-50%, 0); }
-
   @keyframes wave { 0%,100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
   @keyframes blink { 50% { opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { .wave b, .rec::before, .caret { animation: none; } }
@@ -134,7 +131,7 @@
       <a href="#features">Privacy</a>
       <a href="#features">Personal AI</a>
     </div>
-    <a href="#download" class="nav-cta" data-download>Get the beta</a>
+    <a href="download.html" class="nav-cta">Get the beta</a>
   </nav>
 </header>
 
@@ -145,14 +142,14 @@
       <h1 id="hero-title">Every word, captured <em>privately.</em></h1>
       <p class="lede">Sribe transcribes meetings, lectures, and voice notes locally on your machine — no uploads, no cloud, no compromise. Want more? Connect your own personal AI to summarize, search, and act on your transcripts.</p>
       <div class="ctas">
-        <a id="download" href="#download" class="btn btn-primary" data-download>
+        <a href="download.html" class="btn btn-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
           Download to test app
         </a>
         <a href="#features" class="btn btn-ghost">See how it works</a>
       </div>
       <div class="meta">
-        <span>macOS · Windows · Linux</span>
+        <span>macOS · Windows</span>
         <span aria-hidden="true">·</span>
         <span>Works fully offline</span>
         <span aria-hidden="true">·</span>
@@ -213,8 +210,6 @@
   </section>
 </main>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
 <script>
   const wave = document.getElementById('wave');
   for (let i = 0; i < 48; i++) {
@@ -258,13 +253,6 @@
       : 'Personal AI is off. Sribe is running 100% offline.';
   });
 
-  const toast = document.getElementById('toast');
-  document.querySelectorAll('[data-download]').forEach(el => el.addEventListener('click', e => {
-    e.preventDefault();
-    toast.textContent = 'Your Sribe beta download is starting…';
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2600);
-  }));
 </script>
 </body>
 </html>
